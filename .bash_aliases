@@ -20,7 +20,9 @@ export PROMPT_DIRTRIM=2
 function git_color {
   local git_status="$(git status 2> /dev/null)"
 
-  if [[ $git_status =~ "Changes to be committed" || $git_status =~ "Untracked files" ]]; then
+  if [[ $git_status =~ "Changes to be committed" ||
+      $git_status =~ "Untracked files" ||
+      $git_status =~ "Changes not staged for commit" ]]; then
     echo -e "\e[1;33m"
   else
     echo -e "\e[0;36m"

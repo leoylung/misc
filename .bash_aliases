@@ -39,10 +39,12 @@ tmuxquad() {
 tmuxvsplit() {
   tmux splitw -h -p 50 -t 0
   tmux splitw -v -p 50 -t 1
+  tmux splitw -v -p 50 -t 1
   tmux selectp -t 0
 }
 
 tmuxhsplit() {
+  tmux splitw -v -p 50 -t 0
   tmux splitw -v -p 50 -t 0
   tmux selectp -t 0
 }

@@ -7,6 +7,8 @@ alias gca='git commit --amend'
 # alias gac='git commit -am "$(date)"'
 alias gd='git diff'
 alias gdt='git difftool -d'
+alias gdm='git diff origin/master'
+alias gdtm='git difftool -d origin/master'
 alias gb='git branch'
 alias gco='git checkout'
 

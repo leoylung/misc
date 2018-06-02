@@ -1,6 +1,6 @@
 # git aliases
 alias gs='git status'
-alias gl='git log --pretty=format:"'"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s"'" --date=short'
+alias gl='git log --graph --all --decorate --pretty=format:"'"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s"'" --date=short'
 alias ga='git add'
 alias gcm='git commit -m'
 alias gca='git commit --amend'

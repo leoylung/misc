@@ -13,6 +13,7 @@ set nostartofline
 set ignorecase
 set smartcase
 set nojoinspaces
+set pastetoggle=<F2>
 
 " === Stats Line ===
 set statusline=

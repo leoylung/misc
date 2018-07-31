@@ -1,16 +1,21 @@
 # git aliases
 alias gs='git status'
-alias gl='git log --graph --all --decorate --pretty=format:"'"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s"'" --date=short'
+alias gl='git log --pretty=format:"'"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s"'" --date=short'
+alias gla='git log --graph --all --decorate --pretty=format:"'"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s"'" --date=short'
 alias ga='git add'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
 # alias gac='git commit -am "$(date)"'
 alias gd='git diff'
+alias gdn='git diff --name-only'
 alias gdt='git difftool -d'
 alias gdm='git diff origin/master'
+alias gdnm='git diff --name-only origin/master'
 alias gdtm='git difftool -d origin/master'
 alias gb='git branch'
 alias gco='git checkout'
+alias gp='git push origin HEAD:refs/for/master'
+alias gpwip='git push origin HEAD:refs/for/master%wip'
 
 # prompt
 PROMPT1="\[\e[1;32m\][\[\e[0m\]"
@@ -48,7 +53,6 @@ tmuxvsplit() {
 }
 
 tmuxhsplit() {
-  tmux splitw -v -p 50 -t 0
   tmux splitw -v -p 50 -t 0
   tmux selectp -t 0
 }

@@ -17,6 +17,24 @@ alias gco='git checkout'
 alias gp='git push origin HEAD:refs/for/master'
 alias gpwip='git push origin HEAD:refs/for/master%wip'
 
+# hg aliases
+alias ha='hg add'
+alias ham='hg amend'
+alias hcm='hg commit -m'
+alias hco='hg checkout'
+alias hd='hg diff'
+alias hdb='hg diff -r .^'
+alias hdbf='hg diff -r .^ --stat'
+alias hdf='hg diff --stat'
+alias hl='hg log'
+alias hp='hg pull'
+alias hr='hg revert'
+alias hrb='hgrebase'
+alias hs='hg status'
+hgrebase() {
+  hg rebase -s $1 -d $2
+}
+
 # prompt
 PROMPT1="\[\e[1;32m\][\[\e[0m\]"
 PROMPT2="\[\e[0;37m\]\u@\h \w\[\e[0m\]"
@@ -30,9 +48,18 @@ function git_color {
   if [[ $git_status =~ "Changes to be committed" ||
       $git_status =~ "Untracked files" ||
       $git_status =~ "Changes not staged for commit" ]]; then
-    echo -e "\e[1;33m"
+    echo -e "\e[1;33m" # Use \x1B instead of \e if on old bash.
   else
-    echo -e "\e[0;36m"
+    echo -e "\e[0;36m" # Use \x1B instead of \e if on old bash.
+  fi  
+}
+function hg_color {
+  local hg_status="$(hg status 2> /dev/null | wc -l)"
+
+  if [[ $hg_status -ne "0" ]]; then
+    echo -e "\e[1;33m" # Use \x1B instead of \e if on old bash.
+  else
+    echo -e "\e[0;36m" # Use \x1B instead of \e if on old bash.
   fi  
 }
 

@@ -14,6 +14,8 @@ set ignorecase
 set smartcase
 set nojoinspaces
 set pastetoggle=<F2>
+set scrolloff=0
+set scrolljump=5
 
 " === Stats Line ===
 set statusline=

@@ -19,6 +19,9 @@ alias gpwip='git push origin HEAD:refs/for/master%wip'
 
 # hg aliases
 alias ha='hg add'
+alias hb='hg bookmark'
+alias hbr='hgbookmarkrename'
+alias hc='hg hide --cleanup'
 alias ham='hg amend'
 alias hcm='hg commit -m'
 alias hco='hg checkout'
@@ -27,12 +30,32 @@ alias hdb='hg diff -r .^'
 alias hdbf='hg diff -r .^ --stat'
 alias hdf='hg diff --stat'
 alias hl='hg log'
-alias hp='hg pull'
+alias hpull='hg pull'
 alias hr='hg revert'
 alias hrb='hgrebase'
 alias hs='hg status'
 hgrebase() {
   hg rebase -s $1 -d $2
+}
+hgbookmarkrename() {
+  hg bookmark -m $1 $2
+}
+
+# adb
+adbscreencap() {
+  adb shell screencap -p /sdcard/$1.png
+  adb pull /sdcard/$1.png
+  adb shell rm /sdcard/$1.png
+}
+
+adbscreenrecord() {
+  adb shell screenrecord /sdcard/$1.mp4 &
+  PID=$!
+  read -p "Press [Enter] to stop recording..."
+  kill $PID
+  sleep 3
+  adb pull /sdcard/$1.mp4
+  adb shell rm /sdcard/$1.mp4
 }
 
 # prompt

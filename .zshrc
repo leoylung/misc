@@ -17,19 +17,23 @@ source $ZSH/oh-my-zsh.sh
 export LESS="-F -X $LESS"                                                                                                                                                                                                                     
 
 # git aliases
+# idempotent
 alias gs='git status'
-alias gl='git log --pretty=format:"'"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s"'" --date=short'
-alias gla='git log --graph --all --decorate --pretty=format:"'"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s"'" --date=short'
-alias ga='git add'
-alias gcm='git commit -m'
-alias gca='git commit --amend'
-# alias gac='git commit -am "$(date)"'
+alias gl='git log --pretty=format:"'"%C(yellow)%h %Cred%ad (%cr) %Cblue%an%Cgreen%d %Creset%s"'" --date=local'
+alias gla='git log --graph --all --decorate --pretty=format:"'"%C(yellow)%h %Cred%ad (%cr) %Cblue%an%Cgreen%d %Creset%s"'" --date=local'
 alias gd='git diff'
 alias gdn='git diff --name-only'
-alias gdt='git difftool -d'
 alias gdm='git diff origin/master'
 alias gdnm='git diff --name-only origin/master'
-alias gdtm='git difftool -d origin/master'
+# committing
+alias ga='git add'
+alias gcm='git commit -m'
+alias gam='git commit --amend'
+# remote
+alias gf='git fetch'
+alias grom='git rebase origin/master'
+alias gmom='git merge origin/master'
+# branching
 alias gb='git branch'
 alias gco='git checkout'
 
@@ -53,6 +57,9 @@ tmuxhsplit() {
   tmux splitw -v -p 50 -t 0
   tmux selectp -t 0
 }
+
+# android
+alias adbt='adb shell input text'
 
 # Fix numeric keypad
 # 0 . Enter

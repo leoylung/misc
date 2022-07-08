@@ -39,5 +39,10 @@
   </action>
   <action id="SelectInProjectView">
     <keyboard-shortcut first-keystroke="numpad7" />
+    <keyboard-shortcut first-keystroke="alt 7" />
+  </action>
+  <action id="ToggleBookmark">
+    <keyboard-shortcut first-keystroke="f3" />
+    <keyboard-shortcut first-keystroke="numpad1" />
   </action>
 </keymap>
